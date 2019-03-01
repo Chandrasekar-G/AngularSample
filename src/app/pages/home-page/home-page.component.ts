@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,31 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  products = [{
-    "id": 1,
-    "quantity": 1,
-    "name": "Compass"
-  },
-  {
-    "id": 2,
-    "quantity": 0,
-    "name": "Jacket"
-  },
-  {
-    "id": 3,
-    "quantity": 5,
-    "name": "Hiking Socks"
-  },
-  {
-    "id": 4,
-    "quantity": 2,
-    "name": "Suntan Lotion"
-  }];
+  products;
 
-
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    this.products = this.productService.getAllProducts();
   }
 
 }
