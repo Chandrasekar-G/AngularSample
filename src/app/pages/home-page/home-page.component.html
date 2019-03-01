@@ -2,7 +2,7 @@
   home-page works!
 </p>
 <ul>
-  <li *ngFor="let product of products">
+  <li *ngFor="let product of products" (click)="navigate(product)">
     {{product.name}}
   </li>
 </ul>
